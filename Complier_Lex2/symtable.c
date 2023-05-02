@@ -121,41 +121,15 @@ void ADDHT(int hscode)
 			Print the identifier,its index in ST, and whether it was entered or present.
 			Print out the hashtable,and number of characters used up in ST
 */
-//int main()
-//{
-//	int i;
-//	PrintHeading();
-//	initialize();
-//
-//	while (input != EOF) {
-//		err = noerror;
-//		SkipSeperators();
-//		ReadID();
-//		if (err == noerror) {
-//			if (nextfree == STsize) {
-//				err = overst;
-//				PrintError(err);
-//			}
-//			ST[nextfree++] = '\0';
-//
-//			ComputeHS(nextid, nextfree);
-//			LookupHS(nextid, hashcode);
-//
-//			if (!found) {
-//				printf("%6d         ", nextid);
-//				for (i = nextid; i < nextfree - 1; i++)
-//					printf("%c", ST[i]);
-//				printf("          (entered)\n");
-//				ADDHT(hashcode);
-//			}
-//			else {
-//				printf("%6d         ", sameid);
-//				for (i = nextid; i < nextfree - 1; i++)
-//					printf("%c", ST[i]);
-//				printf("          (already existed)\n");
-//				nextfree = nextid;
-//			}
-//		}
-//	}
-//	PrintHStable();
-//}
+
+void insertHT() {
+	ST[nextfree++] = '\0';
+	ComputeHS(nextid, nextfree);
+	LookupHS(nextid, hashcode);
+	if (!found) {
+		for (int i = nextid; i < nextfree - 1; i++)	ADDHT(hashcode);
+	}
+	else {
+		nextfree = nextid;
+	}
+}
