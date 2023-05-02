@@ -1,0 +1,2 @@
+C:\Users\Lenovo\source\repos\Complier_Lex\x64\Debug\Complier_Lex.exe
+C:\Users\Lenovo\source\repos\Complier_Lex2\x64\Debug\Complier_Lex.exe
