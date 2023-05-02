@@ -47,9 +47,7 @@ Grobal variations :
 //char ST[STsize];
 //
 
-line_num = 0;
-nextid = 0;  //the current identifier
-nextfree = 0;  //the next available index of ST
+
 //int hashcode;  //hash code of identifier
 //int sameid;  //first index of identifier
 //

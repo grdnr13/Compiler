@@ -6,8 +6,11 @@
 #include "tn.h"
 #include "glob.h"
 
-//int nextfree;
-//int line_num;
+//initialize global variables
+line_num = 1;
+nextid = 0;  //the current identifier
+nextfree = 0;  //the next available index of ST
+
 /*
 * getTokenName -- token number에 따른 token name 반환
 */
@@ -68,14 +71,14 @@ void printToken(enum tnumber tn) {
 	//TODO: STindex, yytext 잘 출력되나 확인
 	if (tn == TIDENT) {
 		//print Line number,Ttoken type, ST-index, Token
-		printf("%-20d, %-20s, %-20d, %-20s", line_num, "ident", nextfree, yytext);
+		printf("%-20d%-20s%-20d%-20s", line_num, "ident", nextfree, yytext);
 	}
 	else {
 		//print Line number, Token type, Token
 		//TODO: 출력형식 고치기
-		printf("%-20d, %-40s, %-20s", line_num, getTokenName(tn), yytext);
+		printf("%-20d%-40s%-20s", line_num, getTokenName(tn), yytext);
 	}
-
+	printf("\n");
 }
 
 /*

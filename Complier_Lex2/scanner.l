@@ -13,7 +13,7 @@ letter [a-zA-Z_]
 digit [0-9]
 
 %%
-[\n]		{line_num++;}
+
 
 "const"		return(TCONST);
 "else"		return(TELSE);
@@ -72,10 +72,16 @@ digit [0-9]
 {digit}+({letter}|{digit}|"_")+		{ err = illid_digit; PrintError(err); return(TERROR);}
 
 
-"/*"([^*]|\*+[^*/])*\**"*/"	;
+"/*"([^*]|\*+[^*/])*\**"*/"	{
+					int i;
+					for(i = 0; i < yyleng; i++)
+                                        	if(yytext[i] == '\n')line_num++;
+					return (TCOMMENT);
+				}
 
-"//".*			;
+"//".*			return(TCOMMENT);
 [ \t]			;
+[\n]		{line_num++;}
 .		return(TDOT);
 
 

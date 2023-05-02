@@ -32,6 +32,7 @@ typedef enum errorTypes ERRORtypes;
 ERRORtypes err;
 #endif // !_ERRORTYPES_
 
+
 #ifndef __SYMTABLE_TYPES__
 #define __SYMTABLE_TYPES__
 typedef struct HTentry* HTpointer;
@@ -57,6 +58,7 @@ int sameid;  //first index of identifier
 int found;  //for the previous occurrence of an identifie
 
 #endif // !_SYMTABLE_
+
 
 #ifndef __YY__
 #define __YY__

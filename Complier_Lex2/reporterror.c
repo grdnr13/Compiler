@@ -18,7 +18,7 @@
 			illid_illch	: illegal identifier (containing illegal characters) */
 void PrintError(ERRORtypes err)
 {
-	printf("%-20d, %-40s", line_num, "**Error**");
+	printf("%-20d%-40s", line_num, "**Error**");
 	switch (err) {
 	case overst: //overflow error
 		printf("Overflow\n");
