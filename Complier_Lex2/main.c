@@ -5,7 +5,9 @@
 */
 #include "tn.h"
 #include "glob.h"
-
+/*
+* getTokenName -- token number에 따른 token name 반환
+*/
 char* getTokenName(enum tnumber tn){
 	switch (tn) {
 		case TCONST:	return "const";
