@@ -3,6 +3,7 @@
 * progrmmer– 김정원, 이소현, 정지현, 하민지
 * date - 05/03/2023
 */
+//TODO: 필요없는거 삭제하기
 #include <stdio.h>
 #include <stdlib.h>
 #define FILE_NAME "testdata.txt"

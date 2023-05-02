@@ -20,7 +20,7 @@ void PrintError(ERRORtypes err)
 	switch (err) {
 	case overst: //overflow error
 		printf("Overflow\n");
-		//nextfree = nextid;
+		nextfree = nextid; //TODO: 다시 확인
 		exit(0);
 		break;
 	case illid_long: //too long identifier error
@@ -31,6 +31,7 @@ void PrintError(ERRORtypes err)
 		printf(" Illegal IDENT\n");
 		break;
 	case illid_digit: //illegal identifier error
+		//TODO: error중에서 identifier 아닌 문자 쓴 경우: scanner.l에서 처리
 		printf(yytext);
 		printf(" Illegal IDENT\n");
 		break;

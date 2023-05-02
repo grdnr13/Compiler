@@ -7,14 +7,14 @@
 #include "glob.h"
 
 
-
 /*
 * printToken() -- token type별로 출력
 */
 void printToken(enum tnumber tn) {
+	//TODO: STindex 잘 출력되나 확인
 	if (tn == TIDENT) {
 		//print Line number,Ttoken type, ST-index, Token
-		printf("%-20d, %-20s, %-20d, %-20d", line_num, "Identifier", nextfree, yytext);
+		printf("%-20d, %-20s, %-20d, %-20s", line_num, "Identifier", nextfree, yytext);
 		//insert token to symbol table
 
 	}
