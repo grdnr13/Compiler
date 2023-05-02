@@ -57,12 +57,9 @@ dkms.conf
 *.opendb
 *.lock
 *.tlog
-*.pdb
-*.idb
 *.suo
 *.log
-*.obj
+
 *.db
 *.db-shm
 *.db-wal
-*.ilk
