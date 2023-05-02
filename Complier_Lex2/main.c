@@ -62,6 +62,7 @@ char* getTokenName(enum tnumber tn){
 
 		case TNUMBER:		return("Number");
 		case TDOT:			return("Dot");
+		case TCOMMENT:		return"comment";
 		}
 }
 /*
