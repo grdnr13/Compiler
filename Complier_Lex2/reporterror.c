@@ -5,7 +5,12 @@
 */
 #include "glob.h"
 
+
+typedef enum errorTypes ERRORtypes;
 ERRORtypes err;
+
+int nextid;
+int nextfree;
 
 /* PrintError    - 	Print out error messages
 			overst :  overflow in ST. print the hashtable and abort

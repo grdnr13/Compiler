@@ -28,15 +28,33 @@ Grobal variations :
 
 *****************************************************************************************************************/
 #include <string.h>
-#include "glob.h"
 #include "tn.h"
 
-int nextid;  //the current identifier
-int nextfree;  //the next available index of ST
+#define STsize 10  //size of string table
+#define HTsize 100	//size of hash table
+
+#define MAX_LEN		12
+
+#define FALSE 0
+#define TRUE 1
+
+typedef struct HTentry* HTpointer;
+typedef struct HTentry {
+	int index;  //index of identifier in ST
+	HTpointer next;  //pointer to next identifier
+} HTentry;
+
+HTpointer HT[HTsize];
+char ST[STsize];
+
+extern int nextid;  //the current identifier
+extern int nextfree;  //the next available index of ST
 int hashcode;  //hash code of identifier
 int sameid;  //first index of identifier
 
 int found;  //for the previous occurrence of an identifie
+
+char* yytext;
 
 /*ReadIO 	- 	Read identifier from the input file the string table ST directly into
 			ST(append it to the previous identifier).

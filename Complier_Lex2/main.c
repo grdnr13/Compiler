@@ -5,7 +5,8 @@
 */
 #include "tn.h"
 #include "glob.h"
-//#include "symtable.c"
+
+int nextfree;
 /*
 * getTokenName -- token number에 따른 token name 반환
 */
