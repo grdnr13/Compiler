@@ -121,7 +121,7 @@ void ADDHT(int hscode)
 			Print the identifier,its index in ST, and whether it was entered or present.
 			Print out the hashtable,and number of characters used up in ST
 */
-
+//TODO: 함수 주석
 void insertHT() {
 	ST[nextfree++] = '\0';
 	ComputeHS(nextid, nextfree);
