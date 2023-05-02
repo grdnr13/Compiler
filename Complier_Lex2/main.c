@@ -6,22 +6,72 @@
 #include "tn.h"
 #include "glob.h"
 
+char* getTokenName(enum tnumber tn){
+	switch (tn) {
+		case TCONST:	return "const";
+		case TELSE:		return "else";
+		case TIF:		return "if";
+		case TINT:		return "integer";
+		case TRETURN:	return "return";
+		case TVOID:		return "void";
+		case TWHILE:	return "while";
 
+		case TPLUS:		return "Plus op";
+		case TMINUS:	return "Minus op";
+		case TSTAR:		return "star";
+		case TSLASH:	return "slash";
+		case TMOD:		return "mod";
+
+		case TASSIGN:	return("assign op");
+		case TADDASSIGN: return("add assign op");
+		case TSUBASSIGN: return("sub assign op");
+		case TMULASSIGN: return("mul assign op");
+		case TDIVASSIGN: return("div assign op");
+		case TMODASSIGN: return("mod assign op");
+
+		case TNOT:		return "not";
+		case TAND:		return "and";
+		case TOR:		return "or";
+
+		case TEQUAL:		return "equal";
+		case TNOTEQU:		return "not equal";
+		case TLESS:			return "less";
+		case TGREAT:		return "great";
+		case TLESSE:		return "less or equal";
+		case TGREATE:		return "great or equal";
+
+		case TINC:			return("increase");
+		case TDEC:			return("decrease");
+
+		case TLPAREN:		return("left paren");
+		case TRPAREN:		return("right paren");
+		case TCOMMA:		return("comma");
+		case (TLBRACE):		return("left brace");
+		case (TRBRACE):		return("right brace");
+		case (TLBRACKET):	return("left bracket");
+		case (TRBRACKET):	return"right bracket";
+		case (TSEMI):		return"semicolon";
+
+		case TNUMBER:		return("Number");
+		case TDOT:			return("Dot");
+		}
+}
 /*
 * printToken() -- token type별로 출력
 */
 void printToken(enum tnumber tn) {
-	//TODO: STindex 잘 출력되나 확인
+	//TODO: STindex, yytext 잘 출력되나 확인
 	if (tn == TIDENT) {
 		//print Line number,Ttoken type, ST-index, Token
-		printf("%-20d, %-20s, %-20d, %-20s", line_num, "Identifier", nextfree, yytext);
+		printf("%-20d, %-20s, %-20d, %-20s", line_num, "ident", nextfree, yytext);
 		//insert token to symbol table
+		//TODO: insert token to symbol table
 
 	}
 	else {
 		//print Line number, Token type, Token
 		//TODO: 출력형식 고치기
-		printf("%-20d, %-40d, %-20s", line_num, tn, yytext);
+		printf("%-20d, %-40s, %-20s", line_num, getTokenName(tn), yytext);
 	}
 
 }
@@ -41,47 +91,7 @@ void main()
 	int cErrors = 0; //count the number of errors
 	while  ((tn = yylex()) != TEOF) {
 		printToken(tn);
-		//switch (tn) {
-		//	case TCONST	: printf("Const\n");  break;
-		//	case TELSE	: printf("Else\n"); break;
-		//	case TIF	: printf("If\n"); break;
-		//	case TINT	: printf("Int\n"); break;
-		//	case TRETURN : printf("Return\n"); break;
-		//	case TVOID	: printf("Void\n"); break;
-		//	case TWHILE	: printf("While\n"); break;
-		//	case TEQUAL	: printf("Equal\n"); break;
-		//	case TNOTEQU : printf("Not equal\n"); break;
-		//	case TLESSE	: printf("Less equal\n"); break;
-		//	case TGREATE : printf("greate equal\n"); break;
-		//	case TAND	: printf("And\n"); break;
-		//	case TOR    : printf("Or\n"); break;
-		//	case TINC	: printf("Increase\n"); break;
-		//	case TDEC	: printf("Decrease\n"); break;
-		//	case TADDASSIGN	: printf("Add op\n"); break;
-		//	case TSUBASSIGN	: printf("Sub op\n"); break;
-		//	case TMULASSIGN	: printf("Mul op\n"); break;
-		//	case TDIVASSIGN	: printf("Div op\n"); break;
-		//	case TMODASSIGN: printf("Mod op\n"); break;
-		//	case TIDENT	: printf("Identifier : %s\n",yytext); break;
-		//	case TNUMBER	: printf("Number : %d\n",atoi(yytext)); break;
-		//	case TDOT	: printf("%s\n",yytext[0]); break;
-		//	case TASSIGN:	printf("Assign op = \n"); break;
-		//	case TMINUS: printf("Minus op - \n"); break;
-		//	case TPLUS:	printf("Plus op + \n"); break;
-		//	case TLPAREN: printf("(\n"); break;
-		//	case TRPAREN:	printf(")\n"); break;
-		//	case TCOMMA:	printf(",\n"); break;
-		//	case (TLBRACE):	printf("{\n"); break;
-		//	case (TRBRACE):	printf("}\n"); break;
-		//	case (TLBRACKET):	printf("[\n"); break;
-		//	case (TRBRACKET):
-		//	case (TSEMI):
-		//	case (TSTAR):
-		//	case (TSLASH):
-		//	case (TMOD):
-		//	case (TNOT):
-		//	default: printf("test default %s \n", yytext); break;
-		//}
+		
 	}
 
 	//Print the number of errors
