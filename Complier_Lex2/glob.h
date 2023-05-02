@@ -31,9 +31,8 @@ typedef enum errorTypes ERRORtypes;
 extern ERRORtypes err;
 #endif // !_ERRORTYPES_
 
-
-#ifndef _SYMTABLE_
-#define _SYMTABLE_
+#ifndef __SYMTABLE_TYPES__
+#define __SYMTABLE_TYPES__
 typedef struct HTentry* HTpointer;
 typedef struct HTentry {
 	int index;  //index of identifier in ST
@@ -42,6 +41,12 @@ typedef struct HTentry {
 
 HTpointer HT[HTsize];
 char ST[STsize];
+#endif // !__SYMTABLE_TYPES__
+
+
+
+#ifndef _SYMTABLE_
+#define _SYMTABLE_
 
 extern int nextid = 0;  //the current identifier
 extern int nextfree = 0;  //the next available index of ST
@@ -52,10 +57,10 @@ extern int found;  //for the previous occurrence of an identifie
 
 #endif // !_SYMTABLE_
 
-
-
+#ifndef __YY__
+#define __YY__
 extern yylex();
 extern char* yytext;
-
+#endif // !__YY__
 
 
