@@ -14,13 +14,14 @@
 void printToken(enum tnumber tn) {
 	if (tn == TIDENT) {
 		//print Line number,Ttoken type, ST-index, Token
-		printf("%-20d, %-20d, %-20d, %-20d", line_num, tn, nextfree, yytext);
+		printf("%-20d, %-20s, %-20d, %-20d", line_num, "Identifier", nextfree, yytext);
 		//insert token to symbol table
 
 	}
 	else {
 		//print Line number, Token type, Token
-		printf("%-20d, %-40d, %-20d", line_num, tn, yytext);
+		//TODO: 출력형식 고치기
+		printf("%-20d, %-40d, %-20s", line_num, tn, yytext);
 	}
 
 }

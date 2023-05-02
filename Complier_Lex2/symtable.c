@@ -31,116 +31,6 @@ Grobal variations :
 #include "glob.h"
 #include "tn.h"
 
-//#define FILE_NAME "testdata.txt"
-
-//#define STsize 10  //size of string table
-//#define HTsize 100	//size of hash table
-
-//#define FALSE 0
-//#define TRUE 1
-
-//#define isLetter(x) ( ((x) >= 'a' && (x) <='z') || ((x) >= 'A' && (x) <= 'Z' || (x) == '_') )
-//#define isDigit(x) ( (x) >= '0' && (x) <= '9' )
-
-//#define MAX_LEN		12
-
-//typedef struct HTentry* HTpointer;
-//typedef struct HTentry {
-//	int index;  //index of identifier in ST
-//	HTpointer next;  //pointer to next identifier
-//} HTentry;
-
-//typedef enum errorTypes ERRORtypes;
-
-//char seperators[] = " .,;:?!\t\n";
-//
-//HTpointer HT[HTsize];
-//char ST[STsize];
-//
-//int nextid = 0;  //the current identifier
-//int nextfree = 0;  //the next available index of ST
-//int hashcode;  //hash code of identifier
-//int sameid;  //first index of identifier
-//
-//int found;  //for the previous occurrence of an identifie
-//
-////ERRORtypes err;
-//
-//FILE* fp;   //to be a pointer to FILE 
-//char input;
-
-////Initialize - open input file
-//void initialize()
-//{
-//	fp = fopen(FILE_NAME, "r");
-//	input = fgetc(fp);
-//}
-
-////isSerperator  -  distinguish the seperator
-////Returns 1 if seperator, otherwise returns 0
-//int isSeperator(char c)
-//{
-//	int i;
-//	int sep_len;
-//
-//	sep_len = strlen(seperators);
-//	for (i = 0; i < sep_len; i++) {
-//		if (c == seperators[i])
-//			return 1;
-//	}
-//	return 0;
-//}
-
-//printHeading	 -		Print the heading
-//void PrintHeading()
-//{
-//	printf("\n\n");
-//	printf("  -----------      ------------      ------------      ------------ \n");
-//	printf("  Line number       Token type         ST-index            Token    \n");
-//	printf("  -----------      ------------      ------------      ------------ \n");
-//	printf("\n");
-//}
-
-///*PrintHStable     -   	Prints the hash table.write out the hashcode and the list of identifiers
-//						associated with each hashcode,but only for non-empty lists.
-//						Print out the number of characters used up in ST. */
-//void PrintHStable()
-//{
-//	int i, j;
-//	HTpointer here;
-//
-//	printf("\n\n\n\n\n [[  HASH TABLE ]] \n\n");
-//
-//	for (i = 0; i < HTsize; i++)
-//		if (HT[i] != NULL) { // non-empty 
-//			printf("  Hash Code %3d : ", i);
-//			for (here = HT[i]; here != NULL; here = here->next) {
-//				j = here->index;
-//				while (ST[j] != '\0' && j < STsize)
-//					printf("%c", ST[j++]);
-//				printf("\t");
-//			}
-//			printf("\n");
-//		}
-//
-//	printf("\n\n\n < %5d characters are used in the string table >\n", nextfree);
-//}
-
-
-
-///* Skip Seperators -   	skip over strings of spaces,tabs,newlines, . , ; : ? !
-//						if illegal seperators,print out error message.*/
-//
-//void SkipSeperators()
-//{
-//	while (input != EOF && !(isLetter(input) || isDigit(input))) {
-//		if (!isSeperator(input)) {
-//			err = illid_illch;
-//			PrintError(err);
-//		}
-//		input = fgetc(fp);
-//	}
-//}
 
 /*ReadIO 	- 	Read identifier from the input file the string table ST directly into
 			ST(append it to the previous identifier).
@@ -152,7 +42,7 @@ void ReadID()
 	nextid = nextfree;
 	char* input = yytext;
 
-	//EOF처리 해줘야하나 나중에 확인하기
+	//TODO: EOF처리 해줘야하나 나중에 확인하기
 	ST[nextfree++] = input;
 	count++;
 
