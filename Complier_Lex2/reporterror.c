@@ -5,9 +5,6 @@
 */
 #include "glob.h"
 
-//enum errorTypes { noerror, illid_digit, illid_long, illid_illch, overst };
-
-//ERRORtypes err;
 
 /* PrintError    - 	Print out error messages
 			overst :  overflow in ST. print the hashtable and abort

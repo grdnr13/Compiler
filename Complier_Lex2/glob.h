@@ -19,19 +19,29 @@
 
 #define MAX_LEN		12
 
+#ifndef _LINENUM_
+#define _LINENUM_
+extern line_num = 0; //count line numbers in scanner.l
+#endif // !_LINENUM_
+
+#ifndef _ERRORTYPES_
+#define _ERRORTYPES_
+extern enum errorTypes { illid_digit, illid_long, illid_illch, overst };
+typedef enum errorTypes ERRORtypes;
+extern ERRORtypes err;
+#endif // !_ERRORTYPES_
+
+
+#ifndef _SYMTABLE_
+#define _SYMTABLE_
 typedef struct HTentry* HTpointer;
 typedef struct HTentry {
 	int index;  //index of identifier in ST
 	HTpointer next;  //pointer to next identifier
 } HTentry;
 
-extern enum errorTypes { illid_digit, illid_long, illid_illch, overst };
-typedef enum errorTypes ERRORtypes;
-
-//extern char seperators[] = " .,;:?!\t\n";
-
-extern HTpointer HT[HTsize];
-extern char ST[STsize];
+HTpointer HT[HTsize];
+char ST[STsize];
 
 extern int nextid = 0;  //the current identifier
 extern int nextfree = 0;  //the next available index of ST
@@ -40,12 +50,12 @@ extern int sameid;  //first index of identifier
 
 extern int found;  //for the previous occurrence of an identifie
 
-extern ERRORtypes err;
+#endif // !_SYMTABLE_
 
-//extern FILE* fp;   //to be a pointer to FILE 
-//extern char input;
+
 
 extern yylex();
 extern char* yytext;
 
-extern line_num = 0; //count line numbers in scanner.l
+
+

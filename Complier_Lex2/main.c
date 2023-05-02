@@ -5,6 +5,7 @@
 */
 #include "tn.h"
 #include "glob.h"
+//#include "symtable.c"
 /*
 * getTokenName -- token number에 따른 token name 반환
 */
@@ -66,9 +67,6 @@ void printToken(enum tnumber tn) {
 	if (tn == TIDENT) {
 		//print Line number,Ttoken type, ST-index, Token
 		printf("%-20d, %-20s, %-20d, %-20s", line_num, "ident", nextfree, yytext);
-		//insert token to symbol table
-		//TODO: insert token to symbol table
-
 	}
 	else {
 		//print Line number, Token type, Token
@@ -93,7 +91,6 @@ void main()
 	int cErrors = 0; //count the number of errors
 	while  ((tn = yylex()) != TEOF) {
 		printToken(tn);
-		
 	}
 
 	//Print the number of errors

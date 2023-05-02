@@ -31,6 +31,12 @@ Grobal variations :
 #include "glob.h"
 #include "tn.h"
 
+int nextid;  //the current identifier
+int nextfree;  //the next available index of ST
+int hashcode;  //hash code of identifier
+int sameid;  //first index of identifier
+
+int found;  //for the previous occurrence of an identifie
 
 /*ReadIO 	- 	Read identifier from the input file the string table ST directly into
 			ST(append it to the previous identifier).
@@ -122,7 +128,7 @@ void ADDHT(int hscode)
 			Print out the hashtable,and number of characters used up in ST
 */
 //TODO: 함수 주석
-void insertHT() {
+void SymbolTable() {
 	ST[nextfree++] = '\0';
 	ComputeHS(nextid, nextfree);
 	LookupHS(nextid, hashcode);
