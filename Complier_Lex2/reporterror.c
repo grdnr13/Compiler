@@ -6,11 +6,10 @@
 #include "glob.h"
 
 
-typedef enum errorTypes ERRORtypes;
-ERRORtypes err;
-
-int nextid;
-int nextfree;
+//extern int nextid;
+//extern int nextfree;
+//
+//extern int line_num;
 
 /* PrintError    - 	Print out error messages
 			overst :  overflow in ST. print the hashtable and abort

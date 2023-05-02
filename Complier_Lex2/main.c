@@ -6,7 +6,8 @@
 #include "tn.h"
 #include "glob.h"
 
-int nextfree;
+//int nextfree;
+//int line_num;
 /*
 * getTokenName -- token number에 따른 token name 반환
 */
