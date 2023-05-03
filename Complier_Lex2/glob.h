@@ -7,8 +7,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define isLetter(x) ( ((x) >= 'a' && (x) <='z') || ((x) >= 'A' && (x) <= 'Z' || (x) == '_') )
-#define isDigit(x) ( (x) >= '0' && (x) <= '9' )
+//#define isLetter(x) ( ((x) >= 'a' && (x) <='z') || ((x) >= 'A' && (x) <= 'Z' || (x) == '_') )
+//#define isDigit(x) ( (x) >= '0' && (x) <= '9' )
 
 #define STsize 10  //size of string table
 #define HTsize 100	//size of hash table
@@ -50,12 +50,12 @@ char ST[STsize];
 #ifndef _SYMTABLE_
 #define _SYMTABLE_
 
-int nextid;  //the current identifier
-int nextfree;  //the next available index of ST
-int hashcode;  //hash code of identifier
-int sameid;  //first index of identifier
+extern int nextid;  //the current identifier
+extern int nextfree;  //the next available index of ST
+extern int hashcode;  //hash code of identifier
+extern int sameid;  //first index of identifier
 
-int found;  //for the previous occurrence of an identifie
+extern int found;  //for the previous occurrence of an identifie
 
 #endif // !_SYMTABLE_
 

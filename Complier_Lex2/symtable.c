@@ -48,10 +48,10 @@ Grobal variations :
 //
 
 
-//int hashcode;  //hash code of identifier
-//int sameid;  //first index of identifier
+int hashcode;  //hash code of identifier
+int sameid;  //first index of identifier
 //
-//int found;  //for the previous occurrence of an identifie
+int found;  //for the previous occurrence of an identifie
 //
 //char* yytext;
 
