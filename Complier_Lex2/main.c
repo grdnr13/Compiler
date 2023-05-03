@@ -73,7 +73,7 @@ void printToken(enum tnumber tn) {
 	//TODO: STindex, yytext 잘 출력되나 확인
 	if (tn == TIDENT) {
 		//print Line number,Ttoken type, ST-index, Token
-		printf("%-20d%-20s%-20d%-20s", line_num, "ident",  nextfree, yytext);
+		printf("%-20d%-20s%-20d%-20s", line_num, "ident", nextfree, yytext);
 	}
 	else if(tn != TERROR) {
 		//print Line number, Token type, Token

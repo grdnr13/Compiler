@@ -61,13 +61,11 @@ Grobal variations :
 			If first letter is digit, print out error message. */
 void ReadID()
 {
-	int count = 0;
 	nextid = nextfree;
 	char* input = yytext;
 
 	//TODO: EOF처리 해줘야하나 나중에 확인하기
 	ST[nextfree++] = input;
-	count++;
 
 }
 
@@ -146,11 +144,15 @@ void ADDHT(int hscode)
 */
 //TODO: 함수 주석
 void SymbolTable() {
+	int i;
+
 	ST[nextfree++] = '\0';
+
 	ComputeHS(nextid, nextfree);
 	LookupHS(nextid, hashcode);
+
 	if (!found) {
-		for (int i = nextid; i < nextfree - 1; i++)	ADDHT(hashcode);
+		ADDHT(hashcode);
 	}
 	else {
 		nextfree = nextid;
