@@ -11,6 +11,8 @@
 //
 //extern int line_num;
 
+cErrors = 0;
+
 /* PrintError    - 	Print out error messages
 			overst :  overflow in ST. print the hashtable and abort
 			illid_digit    : illegal identifier (start with digit)
@@ -18,6 +20,7 @@
 			illid_illch	: illegal identifier (containing illegal characters) */
 void PrintError(ERRORtypes err)
 {
+	cErrors++;
 	printf("%-20d%-40s", line_num, "**Error**");
 	switch (err) {
 	case overst: //overflow error
@@ -29,11 +32,11 @@ void PrintError(ERRORtypes err)
 		printf("Too long identifier\n");
 		break;
 	case illid_illch: //illegal identifier error
+		//TODO: error중에서 identifier 아닌 문자 쓴 경우: scanner.l에서 처리
 		printf(yytext);
 		printf(" Illegal IDENT\n");
 		break;
 	case illid_digit: //illegal identifier error
-		//TODO: error중에서 identifier 아닌 문자 쓴 경우: scanner.l에서 처리
 		printf(yytext);
 		printf(" Illegal IDENT\n");
 		break;

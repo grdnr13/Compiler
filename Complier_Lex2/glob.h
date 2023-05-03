@@ -67,3 +67,4 @@ char* yytext;
 #endif // !__YY__
 
 
+extern int cErrors; //count the number of errors

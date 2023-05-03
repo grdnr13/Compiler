@@ -11,6 +11,7 @@ line_num = 1;
 nextid = 0;  //the current identifier
 nextfree = 0;  //the next available index of ST
 
+
 /*
 * getTokenName -- token number에 따른 token name 반환
 */
@@ -30,12 +31,12 @@ char* getTokenName(enum tnumber tn){
 		case TSLASH:	return "slash";
 		case TMOD:		return "mod";
 
-		case TASSIGN:	return("assign op");
-		case TADDASSIGN: return("add assign op");
-		case TSUBASSIGN: return("sub assign op");
-		case TMULASSIGN: return("mul assign op");
-		case TDIVASSIGN: return("div assign op");
-		case TMODASSIGN: return("mod assign op");
+		case TASSIGN:	return"assign op";
+		case TADDASSIGN: return"add assign op";
+		case TSUBASSIGN: return"sub assign op";
+		case TMULASSIGN: return"mul assign op";
+		case TDIVASSIGN: return"div assign op";
+		case TMODASSIGN: return"mod assign op";
 
 		case TNOT:		return "not";
 		case TAND:		return "and";
@@ -48,21 +49,21 @@ char* getTokenName(enum tnumber tn){
 		case TLESSE:		return "less or equal";
 		case TGREATE:		return "great or equal";
 
-		case TINC:			return("increase");
-		case TDEC:			return("decrease");
+		case TINC:			return "increase";
+		case TDEC:			return "decrease";
 
-		case TLPAREN:		return("left paren");
-		case TRPAREN:		return("right paren");
-		case TCOMMA:		return("comma");
-		case (TLBRACE):		return("left brace");
-		case (TRBRACE):		return("right brace");
-		case (TLBRACKET):	return("left bracket");
+		case TLPAREN:		return "left paren";
+		case TRPAREN:		return "right paren";
+		case TCOMMA:		return "comma";
+		case (TLBRACE):		return "left brace";
+		case (TRBRACE):		return "right brace";
+		case (TLBRACKET):	return "left bracket";
 		case (TRBRACKET):	return"right bracket";
 		case (TSEMI):		return"semicolon";
 
-		case TNUMBER:		return("Number");
-		case TDOT:			return("Dot");
-		case TCOMMENT:		return"comment";
+		case TNUMBER:		return "Number";
+		case TDOT:			return "Dot";
+		case TCOMMENT:		return "comment";
 		}
 }
 /*
@@ -72,9 +73,9 @@ void printToken(enum tnumber tn) {
 	//TODO: STindex, yytext 잘 출력되나 확인
 	if (tn == TIDENT) {
 		//print Line number,Ttoken type, ST-index, Token
-		printf("%-20d%-20s%-20d%-20s", line_num, "ident", nextfree, yytext);
+		printf("%-20d%-20s%-20d%-20s", line_num, "ident",  nextfree, yytext);
 	}
-	else {
+	else if(tn != TERROR) {
 		//print Line number, Token type, Token
 		//TODO: 출력형식 고치기
 		printf("%-20d%-40s%-20s", line_num, getTokenName(tn), yytext);
@@ -91,10 +92,7 @@ void main()
 	//print Heading
 	printf("\n\n");
 	printf("Line number         Token type          ST-index            Token               \n");
-	//printf("--------------------------------------------------------------------------------\n");
-	//printf("\n");
 
-	int cErrors = 0; //count the number of errors
 	while  ((tn = yylex()) != TEOF) {
 		printToken(tn);
 	}

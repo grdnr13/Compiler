@@ -872,34 +872,39 @@ YY_RULE_SETUP
 case 41:
 YY_RULE_SETUP
 #line 75 "scanner.l"
-;
+{
+					int i;
+					for(i = 0; i < yyleng; i++)
+                                        	if(yytext[i] == '\n')line_num++;
+					return (TCOMMENT);
+				}
 	YY_BREAK
 case 42:
 YY_RULE_SETUP
-#line 77 "scanner.l"
-;
+#line 82 "scanner.l"
+return(TCOMMENT);
 	YY_BREAK
 case 43:
 YY_RULE_SETUP
-#line 78 "scanner.l"
+#line 83 "scanner.l"
 ;
 	YY_BREAK
 case 44:
 YY_RULE_SETUP
-#line 79 "scanner.l"
+#line 84 "scanner.l"
 {line_num++;}
 	YY_BREAK
 case 45:
 YY_RULE_SETUP
-#line 80 "scanner.l"
+#line 85 "scanner.l"
 return(TDOT);
 	YY_BREAK
 case 46:
 YY_RULE_SETUP
-#line 83 "scanner.l"
+#line 88 "scanner.l"
 ECHO;
 	YY_BREAK
-#line 903 "lex.yy.c"
+#line 908 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1759,7 +1764,7 @@ int main()
 	return 0;
 	}
 #endif
-#line 83 "scanner.l"
+#line 88 "scanner.l"
 
 int yywrap()
 {
