@@ -47,15 +47,15 @@ Grobal variations :
 //char ST[STsize];
 //
 
+//int nextid = 0;  //the current identifier
+//int nextfree = 0;  //the next available index of ST
+hashcode;  //hash code of identifier
+sameid;  //first index of identifier
 
-int hashcode;  //hash code of identifier
-int sameid;  //first index of identifier
-//
-int found;  //for the previous occurrence of an identifie
-//
-//char* yytext;
+found;  //for the previous occurrence of an identifie
+//yytext;
 
-/*ReadIO 	- 	Read identifier from the input file the string table ST directly into
+/*ReadID 	- 	Read identifier from the input file the string table ST directly into
 			ST(append it to the previous identifier).
 			An identifier is a string of letters and digits, starting with a letter.
 			If first letter is digit, print out error message. */
@@ -145,6 +145,7 @@ void ADDHT(int hscode)
 //TODO: 함수 주석
 void SymbolTable() {
 	int i;
+	ReadID();
 
 	ST[nextfree++] = '\0';
 
@@ -155,6 +156,7 @@ void SymbolTable() {
 		ADDHT(hashcode);
 	}
 	else {
+		nextid += yyleng;
 		nextfree = nextid;
 	}
 }

@@ -10,7 +10,7 @@
 //#define isLetter(x) ( ((x) >= 'a' && (x) <='z') || ((x) >= 'A' && (x) <= 'Z' || (x) == '_') )
 //#define isDigit(x) ( (x) >= '0' && (x) <= '9' )
 
-#define STsize 10  //size of string table
+#define STsize 1000  //size of string table
 #define HTsize 100	//size of hash table
 
 #define MAX_LEN		12
@@ -63,7 +63,8 @@ extern int found;  //for the previous occurrence of an identifie
 #ifndef __YY__
 #define __YY__
 yylex();
-char* yytext;
+extern char* yytext;
+yyleng;
 #endif // !__YY__
 
 
